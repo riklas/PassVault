@@ -1,0 +1,12 @@
+# Compiled python modules.
+*.pyc
+
+# Packaging
+dist/
+build/
+tests/
+# Python egg metadata, regenerated from source files by setuptools.
+*.egg-info/
+
+# tests
+tests/
