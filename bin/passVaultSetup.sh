@@ -45,15 +45,15 @@ elif [[ ! -f ${file} ]]; then
     touch ${file}
 fi
 
-# echo "enter user for encryption - this username will be used in signing the cyphertext. The gpg keys must also be generated in this user's home directory"
-# echo "press enter to select the current user:"
-# 
-# read user§
-# if  [[ -z ${user} ]]; then
-#     username=$(whoami)
-# else
-#     username=${user}
-# fi
+echo "enter user for encryption - this username will be used in signing the cyphertext. The gpg keys must also be generated in this user's home directory"
+echo "press enter to select the current user:"
+
+read user
+if  [[ -z ${user} ]]; then
+    username=$(whoami)
+else
+    username=${user}
+fi
 
 
 echo "starting encyption..."
@@ -70,13 +70,13 @@ else
 fi
 
 echo "encrypting ${file} to target destination ${destination}"
-gpg -ao ${destination} -e ${file}
+gpg -ao ${destination} -esr ${username} ${file}
 
 if [[ $? -eq 0 ]]; then
     echo "encryption complete"
 fi
 
 echo "writing to config file at lib/Vault.conf"
-(echo "[directory]" && echo "encrypt-dir: ${destination}") > ../lib/Vault.conf
+(echo "[directory]" && echo "encrypt-dir: ${destination}" && echo "user: ${username}") > ../lib/Vault.conf
 echo "you can store your original password file as a backup, as new account/password additions will now get added dynamically to the cyphertext"
 
