@@ -18,11 +18,13 @@ import ConfigParser
 
 a='gpg encryption failed:please try again'
 location = None
+user = None
 
 try:
     config = ConfigParser.RawConfigParser()
     config.read('../lib/Vault.conf')
     location = config.get('directory', 'encrypt-dir')
+    user = config.get('directory', 'user')
 except Exception as e:
     exit("ensure password file location is present in lib/settings.txt (encrypt-dir: location)")
 
@@ -50,7 +52,7 @@ def decryptToFile():            # decrypt to file tmp
 
 def encrypt():
     try:
-        subprocess.call(['gpg', '-ao', location, '-e', 'tmp'])
+        subprocess.call(['gpg', '-ao', location, '-esr', user, 'tmp'])
     except Exception as e:
         print e
 
