@@ -1,7 +1,7 @@
 PassVault
 =========
 
-command line python tool for managing your passwords using gpg
+command line python tool for managing your passwords using pgp
 encryption
 
 Allows you to:
@@ -18,9 +18,12 @@ Linux / MacOS
 Dependencies
 -------------
 
-python 2.x
+python 2.x (not tested for python 3)
+
 gpg
+
 pyperclip (https://github.com/asweigart/pyperclip)
+
 xclip (linux only)
 
 Setup
