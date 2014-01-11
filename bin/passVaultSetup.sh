@@ -72,5 +72,6 @@ if [[ $? -eq 0 ]]; then
 fi
 
 echo "writing to config file at lib/Vault.conf"
+mkdir ../lib
 (echo "[directory]" && echo "encrypt-dir: ${destination}" && echo "user: ${username}") > ../lib/Vault.conf
 echo "you can store your original password file as a backup, as new account/password additions will now get added dynamically to the cyphertext"
