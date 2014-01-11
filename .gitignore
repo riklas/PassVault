@@ -5,6 +5,8 @@
 dist/
 build/
 tests/
+setup.py
+
 # Python egg metadata, regenerated from source files by setuptools.
 *.egg-info/
 
