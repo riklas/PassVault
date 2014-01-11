@@ -12,8 +12,13 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-echo "if you have not previously generated pgp keys, quit this installer (Ctrl-C) and then run: 'gpg --gen-key', before starting the setup script again.  Otherwise press enter to continue"
+echo "now generating gpg keys. note you may need to run this script as root if the generation fails - this is an issue that has been found on CENTOS"
+echo "have you previously generated gpg keys in your home directory [y/n]? " 
 read answer
+
+if [[ ${answer} =~ [nN] ]]; then
+    gpg --gen-key
+fi
 
 sleep 1
 echo -e "please have prepared an initial plantext password file with the following format for each line:\n account:username:password"
