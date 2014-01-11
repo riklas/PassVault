@@ -38,7 +38,11 @@ Setup
 run 'git clone https://github.com/riklas/PassVault' to pull files from
 github
 
-run the passVaultSetup.sh to set up your environment 
+1. cd to the bin dirctory
+
+2. run passVaultSetup.sh to set up your environment 
+
+3. The encypted version of your password file will have a suffix of -enc
 
 Usage
 -----

@@ -26,11 +26,11 @@ try:
     location = config.get('directory', 'encrypt-dir')
     user = config.get('directory', 'user')
 except Exception as e:
-    exit("ensure password file location is present in lib/settings.txt (encrypt-dir: location)")
+    exit("ensure password file location is present in PassVault/lib/settings.txt (encrypt-dir: location)")
 
 parser=argparse.ArgumentParser()
 parser.add_argument('-a', help="view account details, copy password to clipboard", metavar='account', dest='account')
-parser.add_argument('-s', help="see account names", dest='see', action='store_true')
+parser.add_argument('-s', help="see all account names", dest='see', action='store_true')
 parser.add_argument('-n', help="add new account record. Add a '.' to leave a parameter blank and quotes to allow spaces between an argument", dest='new', metavar=('account', 'username', 'password'), nargs=3)
 parser.add_argument('-d', help="delete account record(s)", dest='remove', metavar='account', nargs='+')
 parser.add_argument('-m', help="modify account record. Arguments should be: account [a=new_account] [u=new_user] [p=new_password]", dest='change', metavar=('account', 'a=new_account', 'u=new_user', 'p=new_password'), nargs=4)
