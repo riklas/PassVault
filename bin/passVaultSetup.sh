@@ -12,7 +12,7 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-echo "if you have not previously generated pgp keys, quit this installer (Ctrl-C) and then run: 'gpg --gen-key', before starting the setup script again.  Otherwise press any key to continue"
+echo "if you have not previously generated pgp keys, quit this installer (Ctrl-C) and then run: 'gpg --gen-key', before starting the setup script again.  Otherwise press enter to continue"
 read answer
 
 sleep 1
