@@ -27,10 +27,11 @@ read file
 
 if [[ -z ${file} ]]; then
     echo "creating 'pas' in home directory"
-    file = "~/pas"
+    file="${HOME}/pas"
     if [[ -e ${file} ]]; then
-        echo "file pas exists. please specify a relevant file name at the prompt"
+        echo "default file pas exists. please specify a relevant file name at the prompt"
         exit 1
+    fi
     touch ${file}
 elif [[ ! -f ${file} ]]; then
     echo "${file} does not exist"
@@ -73,4 +74,3 @@ fi
 echo "writing to config file at lib/Vault.conf"
 (echo "[directory]" && echo "encrypt-dir: ${destination}" && echo "user: ${username}") > ../lib/Vault.conf
 echo "you can store your original password file as a backup, as new account/password additions will now get added dynamically to the cyphertext"
-
