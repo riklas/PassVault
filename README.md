@@ -37,6 +37,7 @@ Setup
 -----
 run 'git clone https://github.com/riklas/PassVault' to pull files from
 github
+
 run the passVaultSetup.sh to set up your environment 
 
 Usage
