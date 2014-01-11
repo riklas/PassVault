@@ -12,11 +12,11 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-echo -n "would you like to generate keys (y/n)? - select n if you have previously generated pgp keys in your home directory" 
+echo -n "would you like to generate keys (y/n) - select n if you have previously generated pgp keys in your home directory? " 
 read answer
 
 if [[ ${answer} =~ ^[yY] ]]; then
-    gpg --gen-key
+    sudo gpg --gen-key
 else
     echo "using keys in home area"
 fi
