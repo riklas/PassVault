@@ -12,14 +12,8 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
-echo -n "would you like to generate keys (y/n) - select n if you have previously generated pgp keys in your home directory? " 
+echo "if you have not previously generated pgp keys, quit this installer (Ctrl-C) and then run: 'gpg --gen-key', before starting the setup script again.  Otherwise press any key to continue"
 read answer
-
-if [[ ${answer} =~ ^[yY] ]]; then
-    sudo gpg --gen-key
-else
-    echo "using keys in home area"
-fi
 
 sleep 1
 echo -e "please have prepared an initial plantext password file with the following format for each line:\n account:username:password"
