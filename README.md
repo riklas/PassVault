@@ -28,7 +28,8 @@ python 2.x (not tested for python 3)
 
 gpg
 
-pyperclip (https://github.com/asweigart/pyperclip)
+pyperclip (pip install pyperclip) - install pip using your system's
+default package installer if not already present on your system
 
 xclip (linux only)
 
