@@ -40,7 +40,7 @@ elif [[ ! -f ${file} ]]; then
     touch ${file}
 fi
 
-echo "enter user for encryption - this username will be used in signing the cyphertext. The gpg keys must also be generated in this user's home directory"
+echo "enter user for encryption - this username will be used in signing the cyphertext. The gpg keys must also be generated for this user"
 echo "press enter to select the current user:"
 
 read user
