@@ -15,6 +15,12 @@ Platforms
 
 Linux / MacOS
 
+Issues
+-------
+
+CentOS has problems generating pgp keys as a non-root user, you may have to generate keys and
+use the application as root
+
 Dependencies
 -------------
 
@@ -28,7 +34,8 @@ xclip (linux only)
 
 Setup
 -----
-
+run 'git clone https://github.com/riklas/PassVault' to pull files from
+github
 run the passVaultSetup.sh to set up your environment 
 
 Usage
