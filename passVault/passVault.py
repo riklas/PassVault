@@ -22,11 +22,13 @@ user = None
 
 try:
     config = ConfigParser.RawConfigParser()
-    config.read('../lib/Vault.conf')
+    script_dir = os.path.dirname(__file__)
+    file_path = os.path.join(script_dir, '../lib/Vault.conf')
+    config.read(file_path)
     location = config.get('directory', 'encrypt-dir')
     user = config.get('directory', 'user')
 except Exception as e:
-    exit("ensure password file location is present in PassVault/lib/settings.txt (encrypt-dir: location)")
+    exit("ensure password file location is present in PassVault/lib/Vault.conf (encrypt-dir: location)")
 
 parser=argparse.ArgumentParser()
 parser.add_argument('-a', help="view account details, copy password to clipboard", metavar='account', dest='account')
