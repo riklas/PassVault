@@ -2,13 +2,14 @@
 
 """ file must be in the format account:pass """
 
-# TODO use configparser to get the path for the cyphertext
 # TODO convert to python 3 using 2to3
 # TODO see if you need to make the options mutually exclusive or you can run them together
+# TODO random password generator
 
 import subprocess
 import argparse
 from sys import exit
+from sys import argv
 import os
 import re
 from os import SEEK_SET
@@ -37,6 +38,9 @@ parser.add_argument('-n', help="add new account record. Add a '.' to leave a par
 parser.add_argument('-d', help="delete account record(s)", dest='remove', metavar='account', nargs='+')
 parser.add_argument('-m', help="modify account record. Arguments should be: account [a=new_account] [u=new_user] [p=new_password]", dest='change', metavar=('account', 'a=new_account', 'u=new_user', 'p=new_password'), nargs=4)
 args=parser.parse_args()
+
+if len(argv) < 2:
+    exit("Usage: Run the script with the -h flag to see options") 
 
 def decrypt():
     try:
