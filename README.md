@@ -30,9 +30,11 @@ gpg
 
 pip (python package installer)
 
-pyperclip (pip install pyperclip)
-
 xclip (linux only)
+
+python dependencies:
+-pyperclip (pip install pyperclip)
+-argparse (pip install argparse)
 
 Setup
 -----

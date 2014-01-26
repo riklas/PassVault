@@ -50,21 +50,21 @@ def decrypt():
     except Exception as e:
         print e
 
-def decryptToFile():            # decrypt to file tmp
+def decryptToFile():            # decrypt to file transitory
     try:
-        subprocess.call(['gpg', '-ao', 'tmp', '-d', location])
+        subprocess.call(['gpg', '-ao', 'transitory', '-d', location])
     except Exception as e:
         print e
 
 def encrypt():
     try:
-        subprocess.call(['gpg', '-ao', location, '-esr', user, 'tmp'])
+        subprocess.call(['gpg', '-ao', location, '-esr', user, 'transitory'])
     except Exception as e:
         print e
 
 def delete():
     try:
-        os.remove('tmp')
+        os.remove('transitory')
     except OSError:
         exit()
 
@@ -75,7 +75,7 @@ def add():
     line = ' '.join(args.new).replace(' ', ':').rstrip()
     # print line
     decryptToFile()
-    with open('tmp', 'a+') as f:
+    with open('transitory', 'a+') as f:
         f.seek(0, SEEK_SET)
         for l in f.readlines():
             if l.split(':')[0].rstrip() == args.new[0]:
@@ -89,7 +89,7 @@ def add():
 def remove():
     try:
         decryptToFile()
-        with open('tmp') as f:          # open file for reading
+        with open('transitory') as f:          # open file for reading
             lines = f.readlines()
         for removable in args.remove:
             for i,line in enumerate(lines):
@@ -97,7 +97,7 @@ def remove():
                     del lines[i]
                     break
 
-        with open('tmp', 'w') as f:     # write to new file excluding deleted line
+        with open('transitory', 'w') as f:     # write to new file excluding deleted line
             for newline in lines:
                 f.write(newline)
         encrypt()
@@ -117,7 +117,7 @@ def modify(m, byte):
     linelist=None
     try:
         decryptToFile()
-        with open('tmp') as f:                                  # save decrypted file
+        with open('transitory') as f:                                  # save decrypted file
             lines = f.readlines()
 
         for i, line in enumerate(lines):
@@ -175,7 +175,7 @@ def modify(m, byte):
             delete()
             exit("%s not found in vault" % m.group(1))
 
-        with open('tmp', 'w') as f:                             # persist changes to tmp file to be re-encrypted
+        with open('transitory', 'w') as f:                             # persist changes to transitory file to be re-encrypted
             for newline in lines:
                 f.write(newline)
         encrypt()
