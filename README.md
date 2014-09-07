@@ -30,7 +30,7 @@ gpg
 
 pip (python package installer)
 
-xclip (linux only)
+xclip (linux only dependency)
 
 python dependencies:
 -pyperclip (pip install pyperclip)
