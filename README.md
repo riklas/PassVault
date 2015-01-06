@@ -58,7 +58,7 @@ Other files
 
 a Vault.conf file will be created to hold config data for the vault.
 Use this file to change the directory location of the encrypted password
-file and the user who will be signing on encrpytion
+file and the user who will be signing on encryption
 
 Disclaimer
 ----------
