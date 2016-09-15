@@ -27,8 +27,8 @@ Dependencies
 python 2.x (not tested for python 3)
 
 python dependencies:
-*pyperclip (pip install pyperclip)
-*argparse (pip install argparse)
+pyperclip (pip install pyperclip)
+argparse (pip install argparse)
 
 gpg
 
