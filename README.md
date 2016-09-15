@@ -5,15 +5,15 @@ command line python tool for managing your passwords using pgp
 encryption
 
 Allows you to:
-- create and store encrypted account/username/password combinations
-- add, delete and modify entries
-- view account details, with the password copied to your clipboard
-  for privacy and usability
+- create and store RSA encrypted passwords
+- fast and productive adding, deleting and modifying of entries
+- password copied to your clipboard on retrieval for privacy and usability
 
 Platforms
 ----------
 
 Linux / MacOS
+(not tested for Windows)
 
 Issues
 -------
@@ -25,16 +25,14 @@ Dependencies
 -------------
 
 python 2.x (not tested for python 3)
-
-gpg
-
-pip (python package installer)
-
-xclip (linux only dependency)
-
 python dependencies:
 -pyperclip (pip install pyperclip)
 -argparse (pip install argparse)
+
+gpg
+
+xclip (linux only dependency)
+
 
 Setup
 -----
@@ -45,7 +43,7 @@ github
 
 2. run passVaultSetup.sh to set up your environment 
 
-3. The encypted version of your password file will have a suffix of -enc
+3. The password ciphertext store will have a suffix of -enc
 
 Usage
 -----
@@ -57,8 +55,8 @@ Other files
 -----------
 
 a Vault.conf file will be created to hold config data for the vault.
-Use this file to change the directory location of the encrypted password
-file and the user who will be signing on encryption
+Use this file to change the directory location of the password
+cyphertext and the system user who will be signing on encryption
 
 Disclaimer
 ----------
